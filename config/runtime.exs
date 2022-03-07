@@ -7,6 +7,8 @@ import Config
 # any compile-time configuration in here, as it won't be applied.
 # The block below contains prod specific runtime configuration.
 
+config :vorfreude, :flickr_api_key, System.get_env("FLICKR_API_KEY")
+
 # Start the phoenix server if environment is set and running in a release
 if System.get_env("PHX_SERVER") && System.get_env("RELEASE_NAME") do
   config :vorfreude, VorfreudeWeb.Endpoint, server: true
@@ -26,7 +28,7 @@ if config_env() == :prod do
       """
 
   host = System.get_env("PHX_HOST") || "example.com"
-  port = String.to_integer(System.get_env("PORT") || "4000")
+  port = String.to_integer(System.get_env("PORT") || "4600")
 
   config :vorfreude, VorfreudeWeb.Endpoint,
     url: [host: host, port: 443],

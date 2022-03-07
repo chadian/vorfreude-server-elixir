@@ -33,6 +33,7 @@ defmodule Vorfreude.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:httpoison, "~> 1.8"},
       {:phoenix, "~> 1.6.6"},
       {:phoenix_live_dashboard, "~> 0.6"},
       {:esbuild, "~> 0.3", runtime: Mix.env() == :dev},
