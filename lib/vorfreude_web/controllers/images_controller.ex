@@ -2,6 +2,8 @@ defmodule VorfreudeWeb.ImagesController do
   require Logger
   use VorfreudeWeb, :controller
 
+  plug Corsica, origins: "*"
+
   @flickr_api_url "https://api.flickr.com/services/rest"
 
   def index(conn, %{"search" => searchTerms}) do
