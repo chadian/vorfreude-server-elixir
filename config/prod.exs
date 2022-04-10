@@ -10,6 +10,7 @@ import Config
 # which you should run after static files are built and
 # before starting your production server.
 config :vorfreude, VorfreudeWeb.Endpoint, cache_static_manifest: "priv/static/cache_manifest.json"
+config :vorfreude, :flickr_api_url, "https://api.flickr.com/services/rest"
 
 # Do not print debug messages in production
 config :logger, level: :info

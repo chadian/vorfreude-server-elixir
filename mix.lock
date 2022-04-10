@@ -1,4 +1,5 @@
 %{
+  "bypass": {:hex, :bypass, "2.1.0", "909782781bf8e20ee86a9cabde36b259d44af8b9f38756173e8f5e2e1fabb9b1", [:mix], [{:plug, "~> 1.7", [hex: :plug, repo: "hexpm", optional: false]}, {:plug_cowboy, "~> 2.0", [hex: :plug_cowboy, repo: "hexpm", optional: false]}, {:ranch, "~> 1.3", [hex: :ranch, repo: "hexpm", optional: false]}], "hexpm", "d9b5df8fa5b7a6efa08384e9bbecfe4ce61c77d28a4282f79e02f1ef78d96b80"},
   "castore": {:hex, :castore, "0.1.15", "dbb300827d5a3ec48f396ca0b77ad47058578927e9ebe792abd99fcbc3324326", [:mix], [], "hexpm", "c69379b907673c7e6eb229f09a0a09b60bb27cfb9625bcb82ea4c04ba82a8442"},
   "certifi": {:hex, :certifi, "2.9.0", "6f2a475689dd47f19fb74334859d460a2dc4e3252a3324bd2111b8f0429e7e21", [:rebar3], [], "hexpm", "266da46bdb06d6c6d35fde799bcb28d36d985d424ad7c08b5bb48f5b5cdd4641"},
   "corsica": {:hex, :corsica, "0.3.2", "2b967c040442e1873fee82fa6edb5c84acf617a2f3c2bc9241305c5eb730da4f", [:mix], [{:cowboy, ">= 1.0.0", [hex: :cowboy, repo: "hexpm", optional: false]}, {:plug, ">= 0.9.0", [hex: :plug, repo: "hexpm", optional: false]}], "hexpm", "fb6d63c3f281676ddd7c7fbe1f730c746ccabb356ae3f790bc93be05ee7c2bad"},

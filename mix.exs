@@ -43,7 +43,8 @@ defmodule Vorfreude.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:corsica, "~> 0.3.0"}
+      {:corsica, "~> 0.3.0"},
+      {:bypass, "~> 2.1", only: :test}
     ]
   end
 

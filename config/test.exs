@@ -7,9 +7,13 @@ config :vorfreude, VorfreudeWeb.Endpoint,
   secret_key_base: "IZsISBfraJlAPFXMf+RPXF1Da09lpJWZ1Qd9UJ4egJ3BNCqEJXcMgrFgozoQwNCl",
   server: false
 
+# Use a localhost bypass server
+bypass_port = 4800
+config :vorfreude, :bypass_port, bypass_port
+config :vorfreude, :flickr_api_url, "http://localhost:#{bypass_port}/"
+
 # In test we don't send emails.
-config :vorfreude, Vorfreude.Mailer,
-  adapter: Swoosh.Adapters.Test
+config :vorfreude, Vorfreude.Mailer, adapter: Swoosh.Adapters.Test
 
 # Print only warnings and errors during test
 config :logger, level: :warn
