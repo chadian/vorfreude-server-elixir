@@ -13,6 +13,48 @@ defmodule VorfreudeWeb.ImagesControllerTests do
       assert conn.resp_body == "Search requests must use the `search` query parameter"
     end
 
+		@tag capture_log: true
+    test "empty result returned when it contains a missing api key error code", %{
+      conn: conn,
+      bypass: bypass
+    } do
+      flickr_result = ~s<
+				{
+					"code": 100
+				}
+			>
+
+      Bypass.expect(bypass, "GET", "/", fn c ->
+        Plug.Conn.resp(c, 200, flickr_result)
+      end)
+
+      conn = get(conn, Routes.images_path(conn, :index, %{"search" => "Brooklyn"}))
+      result = Jason.decode!(conn.resp_body)
+      photo_results = get_in(result, ["photos", "photo"])
+      assert length(photo_results) == 0
+    end
+
+		@tag capture_log: true
+    test "empty result returned when the response is a non-200 http status code", %{
+      conn: conn,
+      bypass: bypass
+    } do
+      flickr_result = ~s<
+				{
+					"code": 100
+				}
+			>
+
+      Bypass.expect(bypass, "GET", "/", fn c ->
+        Plug.Conn.resp(c, 500, flickr_result)
+      end)
+
+      conn = get(conn, Routes.images_path(conn, :index, %{"search" => "Brooklyn"}))
+      result = Jason.decode!(conn.resp_body)
+      photo_results = get_in(result, ["photos", "photo"])
+      assert length(photo_results) == 0
+    end
+
     test "fetches proxied results", %{conn: conn, bypass: bypass} do
       flickr_result = ~s<
         {
@@ -30,7 +72,7 @@ defmodule VorfreudeWeb.ImagesControllerTests do
 
       conn = get(conn, Routes.images_path(conn, :index, %{"search" => "Brooklyn"}))
       result = Jason.decode!(conn.resp_body)
-      [first_photo | tail] = get_in(result, ["photos", "photo"])
+      [first_photo | _tail] = get_in(result, ["photos", "photo"])
       assert first_photo["id"] == "abc123"
     end
   end

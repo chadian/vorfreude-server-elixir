@@ -24,7 +24,7 @@ defmodule VorfreudeWeb.ImagesController do
     else
       {:error, error} ->
         Logger.error("Failed with internal error:")
-        Logger.error(error)
+        Logger.error(inspect(error))
         json(conn, empty_result)
 
       %{"code" => ^missing_api_key_code} ->
@@ -36,7 +36,7 @@ defmodule VorfreudeWeb.ImagesController do
 
       result ->
         Logger.error("Failed with error:")
-        Logger.error(result)
+        Logger.error(inspect(result))
         json(conn, empty_result)
     end
   end
