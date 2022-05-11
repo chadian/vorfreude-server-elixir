@@ -30,7 +30,6 @@ defmodule VorfreudeWeb.ImagesControllerTests do
 
       conn = get(conn, Routes.images_path(conn, :index, %{"search" => "Brooklyn"}))
       result = Jason.decode!(conn.resp_body)
-
       [first_photo | tail] = get_in(result, ["photos", "photo"])
       assert first_photo["id"] == "abc123"
     end
