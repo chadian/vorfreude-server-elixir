@@ -1,5 +1,7 @@
 import Config
 
+host = System.get_env("NF_HOSTS") || "localhost"
+
 # For production, don't forget to configure the url host
 # to something meaningful, Phoenix uses this information
 # when generating URLs.
@@ -12,7 +14,7 @@ import Config
 config :vorfreude, :flickr_api_url, "https://api.flickr.com/services/rest"
 config :vorfreude, Vorfreude.Endpoint,
   cache_static_manifest: "priv/static/cache_manifest.json",
-  url: [scheme: "https", host: "public--api--vorfreude--chad-ffrl.code.run", port: 443]
+  url: [scheme: "https", host: host, port: 443]
 
 # Do not print debug messages in production
 config :logger, level: :info
