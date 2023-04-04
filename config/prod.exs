@@ -1,6 +1,6 @@
 import Config
 
-host = System.get_env("NF_HOSTS") || "localhost"
+host = System.get_env("RAILWAY_STATIC_URL") || "localhost"
 
 # For production, don't forget to configure the url host
 # to something meaningful, Phoenix uses this information
