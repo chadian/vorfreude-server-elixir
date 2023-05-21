@@ -19,6 +19,8 @@ config :vorfreude, VorfreudeWeb.Endpoint,
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
   ]
 
+config :vorfreude, :flickr_api_url, "https://api.flickr.com/services/rest"
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
