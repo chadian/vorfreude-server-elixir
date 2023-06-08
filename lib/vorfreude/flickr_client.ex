@@ -46,7 +46,7 @@ defmodule Vorfreude.FlickrClient do
       "privacy_filter" => "1",
       "sort" => "interestingness-desc",
       "per_page" => "500",
-      "extras" => "url_o"
+      "extras" => "url_o,description"
     }
 
     api_url = URI.parse(flickr_api_url())
